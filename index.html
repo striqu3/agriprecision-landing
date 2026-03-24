@@ -837,60 +837,189 @@
         <div class="img-card reveal order-1 lg:order-2">
           <img
             src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/PnPIVrnwtgSBTDEE.png"
-            alt="Operador na cabine do trator com tablet Agres Agronave exibindo navegação de precisão"
+            alt="Operador na cabine do trator com computador de bordo Agres Agronave exibindo navegação de precisão"
             class="w-full h-80 object-cover rounded-2xl"
             loading="lazy"
           />
         </div>
       </div>
 
-      <!-- Kit Piloto Agres -->
-      <div class="reveal mt-20 glass-card rounded-2xl overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
-          <!-- Image -->
-          <div class="bg-[#080a0c] flex items-center justify-center p-10 lg:p-14">
-            <img
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/HIJHvATUapRyliPy.png"
-              alt="Kit completo piloto automático Agres: tablet Agronave, antena GPS, motor de direção e sensor de ângulo"
-              class="w-full max-w-md mx-auto object-contain drop-shadow-2xl"
-              loading="lazy"
-            />
-          </div>
-          <!-- Text -->
-          <div class="p-10 lg:p-14">
-            <span class="tag-badge mb-4 inline-block">Kit Completo</span>
-            <h3 class="font-display font-800 text-3xl text-[#f0ede8] mb-4 leading-tight">
-              Tudo que você precisa,<br/><span class="text-gradient-green">em um único kit.</span>
-            </h3>
-            <p class="text-[#9aa3ae] leading-relaxed mb-6">
-              O kit piloto automático Agres reúne todos os componentes necessários para a instalação completa na sua máquina: tablet Agronave, antena GPS de alta precisão, motor de direção e sensor de ângulo de roda. Instalado e calibrado por técnicos especializados.
-            </p>
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="icon-circle flex-shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <span class="text-[#f0ede8] text-sm">Tablet Agronave com software de navegação integrado</span>
+      <!-- Kit Piloto Agres — Carrossel -->
+      <div class="reveal mt-20">
+        <div class="text-center mb-10">
+          <span class="tag-badge">Escolha o Seu Kit</span>
+          <h3 class="font-display font-800 text-3xl md:text-4xl text-[#f0ede8] mt-4 leading-tight">
+            Três modelos para<br/><span class="text-gradient-green">cada tipo de máquina.</span>
+          </h3>
+          <p class="text-[#9aa3ae] mt-3 max-w-xl mx-auto">Cada kit reúne computador de bordo Agronave, antena GPS de precisão e o atuador ideal para a sua máquina. Instalado e calibrado por técnicos certificados.</p>
+        </div>
+
+        <!-- Carousel Tabs -->
+        <div class="flex justify-center gap-3 mb-8" id="kit-tabs">
+          <button onclick="showKit(0)" id="tab-0" class="kit-tab active-tab px-5 py-2.5 rounded-xl text-sm font-600 transition-all duration-300 border border-[#2e7d52] text-[#4ade80] bg-[#2e7d52]/20">
+            e-Steer <span class="text-xs opacity-70 ml-1">Elétrico</span>
+          </button>
+          <button onclick="showKit(1)" id="tab-1" class="kit-tab px-5 py-2.5 rounded-xl text-sm font-600 transition-all duration-300 border border-white/10 text-[#9aa3ae] hover:border-[#2e7d52]/50 hover:text-[#4ade80]">
+            h-Steer <span class="text-xs opacity-70 ml-1">Hidráulico</span>
+          </button>
+          <button onclick="showKit(2)" id="tab-2" class="kit-tab px-5 py-2.5 rounded-xl text-sm font-600 transition-all duration-300 border border-white/10 text-[#9aa3ae] hover:border-[#2e7d52]/50 hover:text-[#4ade80]">
+            ready <span class="text-xs opacity-70 ml-1">Preparado</span>
+          </button>
+        </div>
+
+        <!-- Carousel Slides -->
+        <div class="relative overflow-hidden">
+
+          <!-- Slide 0: e-Steer -->
+          <div id="kit-slide-0" class="kit-slide glass-card rounded-2xl overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+              <div class="bg-[#080a0c] flex items-center justify-center p-10 lg:p-14 relative">
+                <span class="absolute top-5 left-5 bg-[#2e7d52] text-white text-xs font-700 px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">e-Steer</span>
+                <span class="absolute top-5 right-5 bg-[#c47c2a]/20 border border-[#c47c2a]/40 text-[#e8a84a] text-xs font-600 px-3 py-1.5 rounded-full">Elétrico</span>
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/TZhzVQuDAAUHdLPL.png" alt="Kit e-Steer elétrico Agres" class="w-full max-w-md mx-auto object-contain drop-shadow-2xl" loading="lazy" />
               </div>
-              <div class="flex items-center gap-3">
-                <div class="icon-circle flex-shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <span class="text-[#f0ede8] text-sm">Antena GPS de precisão centimétrica</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="icon-circle flex-shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <span class="text-[#f0ede8] text-sm">Motor de direção e sensor de ângulo de roda</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="icon-circle flex-shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <span class="text-[#f0ede8] text-sm">Instalação e calibração por técnicos certificados</span>
+              <div class="p-10 lg:p-14">
+                <h4 class="font-display font-800 text-2xl text-[#f0ede8] mb-2">e-Steer</h4>
+                <p class="text-[#4ade80] text-sm font-600 mb-4">Piloto Automático Elétrico</p>
+                <p class="text-[#9aa3ae] leading-relaxed mb-6">Ideal para tratores e colhedoras. O atuador elétrico magnético é instalado diretamente na coluna de direção, sem necessidade de intervenção no sistema hidráulico da máquina.</p>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#4ade80] font-700 text-sm mb-1">Atuador</div><div class="text-[#9aa3ae] text-xs">Elétrico magnético</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#4ade80] font-700 text-sm mb-1">Precisão</div><div class="text-[#9aa3ae] text-xs">30 cm a 1 cm (RTK)</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#4ade80] font-700 text-sm mb-1">Velocidade</div><div class="text-[#9aa3ae] text-xs">Baixa a moderada</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#4ade80] font-700 text-sm mb-1">Compatível</div><div class="text-[#9aa3ae] text-xs">Tratores e Colhedoras</div></div>
+                </div>
+                <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Kit%20e-Steer%20Elétrico%20Agres." target="_blank" class="btn-primary inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-xl">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.855L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.359-.213-3.72.882.897-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+                  Solicitar Orçamento
+                </a>
               </div>
             </div>
-            <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Kit%20Piloto%20Automático%20Agres." target="_blank"
-               class="btn-primary mt-8 inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-xl">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.855L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.359-.213-3.72.882.897-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-              Solicitar Orçamento do Kit
-            </a>
           </div>
-        </div>
-      </div>
+
+          <!-- Slide 1: h-Steer -->
+          <div id="kit-slide-1" class="kit-slide glass-card rounded-2xl overflow-hidden hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+              <div class="bg-[#080a0c] flex items-center justify-center p-10 lg:p-14 relative">
+                <span class="absolute top-5 left-5 bg-[#1a5c8a] text-white text-xs font-700 px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">h-Steer</span>
+                <span class="absolute top-5 right-5 bg-[#1a5c8a]/20 border border-[#1a5c8a]/40 text-[#5ab4e8] text-xs font-600 px-3 py-1.5 rounded-full">Hidráulico</span>
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/TphTbgCdpwdyedDa.png" alt="Kit h-Steer hidráulico Agres" class="w-full max-w-md mx-auto object-contain drop-shadow-2xl" loading="lazy" />
+              </div>
+              <div class="p-10 lg:p-14">
+                <h4 class="font-display font-800 text-2xl text-[#f0ede8] mb-2">h-Steer</h4>
+                <p class="text-[#5ab4e8] text-sm font-600 mb-4">Piloto Automático Hidráulico</p>
+                <p class="text-[#9aa3ae] leading-relaxed mb-6">Bloco hidráulico dedicado para tratores, colhedoras e autopropelidos. Opera em todas as faixas de velocidade com resposta imediata e alta precisão de trajetória.</p>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#5ab4e8] font-700 text-sm mb-1">Atuador</div><div class="text-[#9aa3ae] text-xs">Bloco hidráulico dedicado</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#5ab4e8] font-700 text-sm mb-1">Precisão</div><div class="text-[#9aa3ae] text-xs">20 cm a 1 cm (RTK)</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#5ab4e8] font-700 text-sm mb-1">Velocidade</div><div class="text-[#9aa3ae] text-xs">Todas as faixas</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#5ab4e8] font-700 text-sm mb-1">Compatível</div><div class="text-[#9aa3ae] text-xs">Tratores, Colhedoras, Autopropelidos</div></div>
+                </div>
+                <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Kit%20h-Steer%20Hidráulico%20Agres." target="_blank" class="btn-primary inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-xl">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.855L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.359-.213-3.72.882.897-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+                  Solicitar Orçamento
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: ready -->
+          <div id="kit-slide-2" class="kit-slide glass-card rounded-2xl overflow-hidden hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+              <div class="bg-[#080a0c] flex items-center justify-center p-10 lg:p-14 relative">
+                <span class="absolute top-5 left-5 bg-[#7a3a8a] text-white text-xs font-700 px-3 py-1.5 rounded-full uppercase tracking-wider shadow-lg">ready</span>
+                <span class="absolute top-5 right-5 bg-[#7a3a8a]/20 border border-[#7a3a8a]/40 text-[#c87de8] text-xs font-600 px-3 py-1.5 rounded-full">Preparado</span>
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/ivKpAovPFmCUwbNF.png" alt="Kit ready hidráulico predisposto Agres" class="w-full max-w-md mx-auto object-contain drop-shadow-2xl" loading="lazy" />
+              </div>
+              <div class="p-10 lg:p-14">
+                <h4 class="font-display font-800 text-2xl text-[#f0ede8] mb-2">ready</h4>
+                <p class="text-[#c87de8] text-sm font-600 mb-4">Piloto Automático Preparado</p>
+                <p class="text-[#9aa3ae] leading-relaxed mb-6">Utiliza o bloco hidráulico original da máquina, ideal para equipamentos já predispostos de fábrica. Direção integrada ao sistema original com máxima compatibilidade e precisão.</p>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#c87de8] font-700 text-sm mb-1">Atuador</div><div class="text-[#9aa3ae] text-xs">Bloco hidráulico original</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#c87de8] font-700 text-sm mb-1">Precisão</div><div class="text-[#9aa3ae] text-xs">20 cm a 1 cm (RTK)</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#c87de8] font-700 text-sm mb-1">Velocidade</div><div class="text-[#9aa3ae] text-xs">Todas as faixas</div></div>
+                  <div class="glass-card rounded-xl p-4"><div class="text-[#c87de8] font-700 text-sm mb-1">Compatível</div><div class="text-[#9aa3ae] text-xs">Tratores, Colhedoras, Autopropelidos</div></div>
+                </div>
+                <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Kit%20ready%20Agres." target="_blank" class="btn-primary inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-xl">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.855L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.359-.213-3.72.882.897-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+                  Solicitar Orçamento
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end carousel slides -->
+
+        <!-- Tabela Comparativa -->
+        <div class="mt-12 reveal">
+          <div class="text-center mb-6">
+            <span class="tag-badge">Comparativo Técnico</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-white/10">
+                  <th class="text-left py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs w-32">Especificação</th>
+                  <th class="py-4 px-4 text-center">
+                    <span class="inline-block bg-[#2e7d52] text-white text-xs font-700 px-3 py-1.5 rounded-full">e-Steer</span>
+                  </th>
+                  <th class="py-4 px-4 text-center">
+                    <span class="inline-block bg-[#1a5c8a] text-white text-xs font-700 px-3 py-1.5 rounded-full">h-Steer</span>
+                  </th>
+                  <th class="py-4 px-4 text-center">
+                    <span class="inline-block bg-[#7a3a8a] text-white text-xs font-700 px-3 py-1.5 rounded-full">ready</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-white/5 hover:bg-white/3 transition-colors">
+                  <td class="py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs">Tipo</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Elétrico</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Hidráulico dedicado</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Hidráulico predisposto</td>
+                </tr>
+                <tr class="border-b border-white/5 hover:bg-white/3 transition-colors">
+                  <td class="py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs">Atuador</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Atuador elétrico magnético</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Bloco hidráulico dedicado</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Bloco hidráulico original</td>
+                </tr>
+                <tr class="border-b border-white/5 hover:bg-white/3 transition-colors">
+                  <td class="py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs">Compatibilidade</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Tratores, Colhedoras</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Tratores, Colhedoras, Autopropelidos</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Tratores, Colhedoras, Autopropelidos</td>
+                </tr>
+                <tr class="border-b border-white/5 hover:bg-white/3 transition-colors">
+                  <td class="py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs">Velocidade</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Baixa a moderada</td>
+                  <td class="py-4 px-4 text-center text-[#4ade80] font-600">Todas as faixas</td>
+                  <td class="py-4 px-4 text-center text-[#4ade80] font-600">Todas as faixas</td>
+                </tr>
+                <tr class="border-b border-white/5 hover:bg-white/3 transition-colors">
+                  <td class="py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs">Operação</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Direção assistida por atuador elétrico</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Direção hidráulica com resposta imediata</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">Direção integrada ao sistema original</td>
+                </tr>
+                <tr class="border-b border-white/5 hover:bg-white/3 transition-colors">
+                  <td class="py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs">Precisão</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">30 cm a 1 cm (RTK)</td>
+                  <td class="py-4 px-4 text-center text-[#4ade80] font-600">20 cm a 1 cm (RTK)</td>
+                  <td class="py-4 px-4 text-center text-[#4ade80] font-600">20 cm a 1 cm (RTK)</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-4 text-[#5a6470] font-600 uppercase tracking-wider text-xs">Computadores</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">agroNave, isoView, geoNave</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">agroNave, isoView, geoNave</td>
+                  <td class="py-4 px-4 text-center text-[#9aa3ae]">agroNave, isoView, geoNave</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- end tabela -->
+
+      </div><!-- end kit carousel wrapper -->
 
     </div>
   </section>
@@ -1300,6 +1429,45 @@
         }
       });
     });
+    // ============================================================
+    // KIT CAROUSEL
+    // ============================================================
+    const kitColors = [
+      { border: '#2e7d52', text: '#4ade80', bg: 'rgba(46,125,82,0.2)' },
+      { border: '#1a5c8a', text: '#5ab4e8', bg: 'rgba(26,92,138,0.2)' },
+      { border: '#7a3a8a', text: '#c87de8', bg: 'rgba(122,58,138,0.2)' }
+    ];
+
+    function showKit(index) {
+      // Hide all slides
+      document.querySelectorAll('.kit-slide').forEach(s => s.classList.add('hidden'));
+      // Show selected
+      const slide = document.getElementById('kit-slide-' + index);
+      if (slide) {
+        slide.classList.remove('hidden');
+        gsap.fromTo(slide, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+      }
+      // Update tabs
+      document.querySelectorAll('.kit-tab').forEach((tab, i) => {
+        if (i === index) {
+          const c = kitColors[i];
+          tab.style.borderColor = c.border;
+          tab.style.color = c.text;
+          tab.style.background = c.bg;
+        } else {
+          tab.style.borderColor = 'rgba(255,255,255,0.1)';
+          tab.style.color = '#9aa3ae';
+          tab.style.background = 'transparent';
+        }
+      });
+    }
+
+    // Auto-rotate carousel every 5s
+    let kitIndex = 0;
+    setInterval(() => {
+      kitIndex = (kitIndex + 1) % 3;
+      showKit(kitIndex);
+    }, 5000);
   </script>
 
 </body>
