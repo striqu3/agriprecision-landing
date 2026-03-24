@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriPrecision — Piloto Automático para Máquinas Agrícolas</title>
+  <meta name="description" content="Sistema de piloto automático com precisão centimétrica para máquinas agrícolas. Reduza desperdícios, economize diesel e aumente a produtividade da sua lavoura." />
+  <meta name="keywords" content="piloto automático agrícola, GPS agrícola, agricultura de precisão, direção automática trator, RTK agrícola" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AgriPrecision — Piloto Automático para Máquinas Agrícolas" />
+  <meta property="og:description" content="Precisão centimétrica para máquinas agrícolas. Economize diesel, elimine sobreposições e aumente sua produtividade." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/lUTLFPGBYNWrtRNn.jpg" />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "AgriPrecision",
+    "description": "Sistemas de piloto automático e GPS agrícola para máquinas de precisão",
+    "url": "https://agriprecision.com.br",
+    "telephone": "+5511999999999",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "BR"
+    },
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            bg: {
+              deep: '#080a0c',
+              card: '#0f1318',
+              glass: 'rgba(15,19,24,0.75)',
+            },
+            accent: {
+              green: '#2e7d52',
+              'green-light': '#3ea06a',
+              'green-glow': '#4ade80',
+              amber: '#c47c2a',
+              'amber-light': '#e8a84a',
+              slate: '#1e2d3d',
+            },
+            text: {
+              primary: '#f0ede8',
+              secondary: '#9aa3ae',
+              muted: '#5a6470',
+            }
+          },
+          backgroundImage: {
+            'hero': "url('https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/lUTLFPGBYNWrtRNn.jpg')",
+            'soil': "url('https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/EQoDokKpmYnUQiJj.jpg')",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ============================================
+       AGRIPRECISION — LANDING PAGE
+       Filosofia: Dark Mode Profundo + Orgânico
+       Paleta: Deep Slate + Forest Green + Amber
+       Tipografia: Syne (display) + Plus Jakarta Sans (body)
+    ============================================ */
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #080a0c;
+      color: #f0ede8;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Scrollbar Custom --- */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #080a0c; }
+    ::-webkit-scrollbar-thumb { background: #2e7d52; border-radius: 2px; }
+
+    /* --- Typography --- */
+    .font-display { font-family: 'Syne', sans-serif; }
+
+    /* --- Glassmorphism --- */
+    .glass {
+      background: rgba(15, 19, 24, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .glass-card {
+      background: rgba(15, 19, 24, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(46, 125, 82, 0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(46, 125, 82, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(46, 125, 82, 0.12), 0 0 0 1px rgba(46, 125, 82, 0.15);
+    }
+
+    /* --- Gradient Text --- */
+    .text-gradient {
+      background: linear-gradient(135deg, #f0ede8 0%, #4ade80 50%, #c47c2a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .text-gradient-green {
+      background: linear-gradient(135deg, #4ade80 0%, #2e7d52 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* --- Glow Effects --- */
+    .glow-green {
+      box-shadow: 0 0 30px rgba(74, 222, 128, 0.2), 0 0 60px rgba(46, 125, 82, 0.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2e7d52, #1a5c3a);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(74,222,128,0.15), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover::before { left: 100%; }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(74, 222, 128, 0.35), 0 8px 25px rgba(0,0,0,0.4);
+      transform: translateY(-2px);
+      border-color: rgba(74, 222, 128, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(240, 237, 232, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(74, 222, 128, 0.5);
+      color: #4ade80;
+      background: rgba(74, 222, 128, 0.05);
+    }
+
+    /* --- Pulse Animation --- */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(74, 222, 128, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(74, 222, 128, 0.6), 0 0 80px rgba(46, 125, 82, 0.2); }
+    }
+
+    .btn-pulse { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+    /* --- Marquee --- */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-track { animation: marquee 28s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* --- Bento Grid --- */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 16px;
+    }
+
+    .bento-1 { grid-column: span 8; grid-row: span 2; }
+    .bento-2 { grid-column: span 4; grid-row: span 1; }
+    .bento-3 { grid-column: span 4; grid-row: span 1; }
+    .bento-4 { grid-column: span 4; grid-row: span 1; }
+    .bento-5 { grid-column: span 4; grid-row: span 1; }
+    .bento-6 { grid-column: span 4; grid-row: span 1; }
+
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: repeat(6, 1fr); }
+      .bento-1 { grid-column: span 6; }
+      .bento-2, .bento-3, .bento-4, .bento-5, .bento-6 { grid-column: span 3; }
+    }
+
+    @media (max-width: 640px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-1, .bento-2, .bento-3, .bento-4, .bento-5, .bento-6 { grid-column: span 1; }
+    }
+
+    /* --- Section Divider --- */
+    .section-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #2e7d52, #4ade80);
+      margin-bottom: 1.5rem;
+    }
+
+    /* --- Noise Texture Overlay --- */
+    .noise-overlay {
+      position: relative;
+    }
+    .noise-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    /* --- Hero Overlay --- */
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(8, 10, 12, 0.65) 0%,
+        rgba(8, 10, 12, 0.45) 40%,
+        rgba(8, 10, 12, 0.75) 80%,
+        rgba(8, 10, 12, 1) 100%
+      );
+    }
+
+    /* --- Number Counter --- */
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* --- Testimonial Card --- */
+    .testimonial-card {
+      background: rgba(15, 19, 24, 0.9);
+      border: 1px solid rgba(46, 125, 82, 0.12);
+      transition: all 0.4s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(46, 125, 82, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    /* --- Scroll Reveal Initial State --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* --- Horizontal Line Accent --- */
+    .line-accent {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(46, 125, 82, 0.4), transparent);
+    }
+
+    /* --- Tag Badge --- */
+    .tag-badge {
+      background: rgba(46, 125, 82, 0.12);
+      border: 1px solid rgba(46, 125, 82, 0.3);
+      color: #4ade80;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+    }
+
+    /* --- Image Overlay Card --- */
+    .img-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .img-card img {
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .img-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* --- Nav Link --- */
+    .nav-link {
+      position: relative;
+      color: rgba(240, 237, 232, 0.7);
+      transition: color 0.3s ease;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: #4ade80;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover { color: #f0ede8; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* --- Icon Circle --- */
+    .icon-circle {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(46, 125, 82, 0.12);
+      border: 1px solid rgba(46, 125, 82, 0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* --- Mobile Menu --- */
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 10, 12, 0.97);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    #mobile-menu.open { display: flex; }
+
+    .mobile-nav-link {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(240, 237, 232, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav-link:hover { color: #4ade80; }
+  </style>
+</head>
+
+<body class="bg-[#080a0c]">
+
+  <!-- ============================================================
+       HEADER — Glassmorphism fixo
+  ============================================================ -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="glass border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#2e7d52] to-[#1a5c3a] flex items-center justify-center shadow-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="font-display font-700 text-lg text-[#f0ede8] tracking-tight">Agri<span class="text-[#4ade80]">Precision</span></span>
+        </a>
+
+        <!-- Nav Desktop -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#diferenciais" class="nav-link">Diferenciais</a>
+          <a href="#solucoes" class="nav-link">Soluções</a>
+          <a href="#beneficios" class="nav-link">Benefícios</a>
+          <a href="#depoimentos" class="nav-link">Depoimentos</a>
+        </nav>
+
+        <!-- CTA Desktop -->
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Piloto%20Automático." target="_blank"
+             class="btn-primary text-white font-semibold text-sm px-5 py-2.5 rounded-lg flex items-center gap-2">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.855L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.359-.213-3.72.882.897-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+            </svg>
+            Falar com Especialista
+          </a>
+        </div>
+
+        <!-- Hamburger Mobile -->
+        <button id="menu-btn" class="lg:hidden text-[#f0ede8] p-2" aria-label="Menu">
+          <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <button id="menu-close" class="absolute top-5 right-6 text-[#f0ede8] p-2">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <a href="#diferenciais" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Diferenciais</a>
+    <a href="#solucoes" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Soluções</a>
+    <a href="#beneficios" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Benefícios</a>
+    <a href="#depoimentos" class="mobile-nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Depoimentos</a>
+    <a href="https://wa.me/5511999999999" target="_blank" class="btn-primary text-white font-semibold px-8 py-3 rounded-xl mt-4">Falar com Especialista</a>
+  </div>
+
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/lUTLFPGBYNWrtRNn.jpg"
+        alt="Trator com piloto automático percorrendo lavoura em linhas perfeitamente paralelas ao entardecer"
+        class="w-full h-full object-cover object-center"
+      />
+      <div class="hero-overlay absolute inset-0"></div>
+    </div>
+
+    <!-- Grain Texture -->
+    <div class="absolute inset-0 z-[1] opacity-20"
+         style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22300%22 height=%22300%22 filter=%22url(%23n)%22 opacity=%220.4%22/%3E%3C/svg%3E');"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-20">
+      <div class="max-w-3xl">
+        <!-- Tag Badge -->
+        <div id="hero-badge" class="tag-badge inline-flex items-center gap-2 mb-8 opacity-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse"></span>
+          Tecnologia de Precisão Centimétrica
+        </div>
+
+        <!-- Headline -->
+        <h1 id="hero-title" class="font-display font-800 text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-[#f0ede8] mb-6 opacity-0">
+          Cada Metro.<br/>
+          <span class="text-gradient">Cada Centímetro.</span><br/>
+          Sob Controle.
+        </h1>
+
+        <!-- Subheadline -->
+        <p id="hero-sub" class="text-[#9aa3ae] text-lg md:text-xl font-300 leading-relaxed max-w-xl mb-10 opacity-0">
+          O piloto automático que transforma a precisão em produtividade real. Elimine sobreposições, economize diesel e libere o operador para o que realmente importa.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div id="hero-cta" class="flex flex-col sm:flex-row gap-4 opacity-0">
+          <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20conhecer%20o%20Piloto%20Automático%20AgriPrecision." target="_blank"
+             class="btn-primary btn-pulse text-white font-semibold text-base px-8 py-4 rounded-xl flex items-center justify-center gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.855L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.359-.213-3.72.882.897-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+            </svg>
+            Solicitar Demonstração
+          </a>
+          <a href="#solucoes"
+             class="btn-outline text-[#f0ede8] font-medium text-base px-8 py-4 rounded-xl flex items-center justify-center gap-2">
+            Conhecer Soluções
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div id="hero-stats" class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 opacity-0">
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="stat-number text-3xl text-[#4ade80]">±2cm</div>
+          <div class="text-[#9aa3ae] text-xs mt-1 font-400 uppercase tracking-wider">Precisão RTK</div>
+        </div>
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="stat-number text-3xl text-[#4ade80]">30%</div>
+          <div class="text-[#9aa3ae] text-xs mt-1 font-400 uppercase tracking-wider">Economia de Diesel</div>
+        </div>
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="stat-number text-3xl text-[#4ade80]">0%</div>
+          <div class="text-[#9aa3ae] text-xs mt-1 font-400 uppercase tracking-wider">Sobreposição</div>
+        </div>
+        <div class="glass rounded-xl p-5 text-center">
+          <div class="stat-number text-3xl text-[#4ade80]">24h</div>
+          <div class="text-[#9aa3ae] text-xs mt-1 font-400 uppercase tracking-wider">Operação Contínua</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60">
+      <span class="text-[#9aa3ae] text-xs uppercase tracking-widest">Scroll</span>
+      <div class="w-px h-10 bg-gradient-to-b from-[#4ade80] to-transparent animate-bounce"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FAIXA DE AUTORIDADE — Marquee
+  ============================================================ -->
+  <section class="py-12 border-y border-white/5 overflow-hidden bg-[#0a0d10]">
+    <div class="relative">
+      <div class="marquee-track flex items-center gap-16 whitespace-nowrap" style="width: max-content;">
+        <!-- Repeat twice for seamless loop -->
+        <div class="flex items-center gap-16">
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Precisão Centimétrica</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Segurança Total</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Calibração Personalizada</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">RTK &amp; Sinal Pago</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Compensação de Inclinação</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Tecnologia Escalável</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Economia de Insumos</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="flex items-center gap-16">
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Precisão Centimétrica</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Segurança Total</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Calibração Personalizada</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">RTK &amp; Sinal Pago</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Compensação de Inclinação</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Tecnologia Escalável</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+          <div class="flex items-center gap-3 text-[#5a6470]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span class="font-display font-600 text-sm tracking-widest uppercase">Economia de Insumos</span>
+          </div>
+          <div class="w-1 h-1 rounded-full bg-[#2e7d52]"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       DIFERENCIAIS — Bento Grid
+  ============================================================ -->
+  <section id="diferenciais" class="py-28 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="reveal mb-16">
+        <div class="section-divider"></div>
+        <span class="tag-badge">Diferenciais Técnicos</span>
+        <h2 class="font-display font-800 text-4xl md:text-5xl text-[#f0ede8] mt-4 leading-tight tracking-tight">
+          Tecnologia que entrega<br/><span class="text-gradient-green">resultados mensuráveis.</span>
+        </h2>
+        <p class="text-[#9aa3ae] text-lg mt-4 max-w-xl font-300">
+          Cada componente foi projetado para maximizar a performance no campo, da precisão centimétrica à robustez em terrenos adversos.
+        </p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="bento-grid">
+
+        <!-- Card 1 — Grande (Piloto Automático) -->
+        <div class="bento-1 glass-card rounded-2xl overflow-hidden reveal relative min-h-[380px]">
+          <div class="absolute inset-0 z-0">
+            <img
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/KYXBpewCPSZoPZVY.jpg"
+              alt="Interior do cockpit do trator com sistema GPS de navegação automática"
+              class="w-full h-full object-cover opacity-50"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0f1318] via-[#0f1318]/60 to-transparent"></div>
+          </div>
+          <div class="relative z-10 p-8 h-full flex flex-col justify-end">
+            <div class="icon-circle mb-4">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M12 1v3M12 20v3M1 12h3M20 12h3"/>
+              </svg>
+            </div>
+            <h3 class="font-display font-700 text-2xl text-[#f0ede8] mb-2">Piloto Automático</h3>
+            <p class="text-[#9aa3ae] text-sm leading-relaxed max-w-md">
+              Controle automático de direção com trajetórias paralelas perfeitas — retas ou curvas. Opera com precisão centimétrica via RTK ou sinal de correção pago, mantendo performance mesmo em terrenos acidentados.
+            </p>
+            <div class="mt-4 flex items-center gap-2">
+              <span class="tag-badge">±2cm RTK</span>
+              <span class="tag-badge">Linhas Paralelas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — GPS Agrícola -->
+        <div class="bento-2 glass-card rounded-2xl p-7 reveal">
+          <div class="icon-circle mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-lg text-[#f0ede8] mb-2">GPS Agrícola</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            Posicionamento de alta precisão do preparo do solo à colheita. Uniformidade total no trabalho de campo, safra após safra.
+          </p>
+        </div>
+
+        <!-- Card 3 — Compensação de Inclinação -->
+        <div class="bento-3 glass-card rounded-2xl p-7 reveal">
+          <div class="icon-circle mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2">
+              <path d="M3 18l9-14 9 14"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-lg text-[#f0ede8] mb-2">Compensação de Inclinação</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            Performance mantida mesmo em solos irregulares. O sistema corrige automaticamente a trajetória em terrenos acidentados.
+          </p>
+        </div>
+
+        <!-- Card 4 — Sensor de Ângulo -->
+        <div class="bento-4 glass-card rounded-2xl p-7 reveal">
+          <div class="icon-circle mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-lg text-[#f0ede8] mb-2">Sensor de Ângulo de Roda</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            Leitura precisa e em tempo real do posicionamento da máquina para correções instantâneas de trajetória.
+          </p>
+        </div>
+
+        <!-- Card 5 — Desarme por Toque -->
+        <div class="bento-5 glass-card rounded-2xl p-7 reveal" style="background: linear-gradient(135deg, rgba(15,19,24,0.9), rgba(30,45,61,0.6));">
+          <div class="icon-circle mb-5" style="background: rgba(196,124,42,0.12); border-color: rgba(196,124,42,0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e8a84a" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-lg text-[#f0ede8] mb-2">Desarme por Toque</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            Segurança total. O controle retorna instantaneamente ao operador ao menor toque no volante — sem delay, sem risco.
+          </p>
+        </div>
+
+        <!-- Card 6 — Calibração Personalizada -->
+        <div class="bento-6 glass-card rounded-2xl p-7 reveal">
+          <div class="icon-circle mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-lg text-[#f0ede8] mb-2">Calibração Personalizada</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            Ajuste específico para cada máquina do cliente. Não é genérico — é configurado para a sua operação.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SOBRE / SOLUÇÕES
+  ============================================================ -->
+  <section id="solucoes" class="py-28 px-6 lg:px-8 bg-[#0a0d10]">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="reveal mb-16 text-center">
+        <div class="section-divider mx-auto"></div>
+        <span class="tag-badge">Nossas Soluções</span>
+        <h2 class="font-display font-800 text-4xl md:text-5xl text-[#f0ede8] mt-4 leading-tight tracking-tight">
+          Do preparo à colheita,<br/><span class="text-gradient">tecnologia em cada etapa.</span>
+        </h2>
+      </div>
+
+      <!-- Solutions Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-20">
+        <!-- Image -->
+        <div class="img-card reveal">
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/JsoHAzomIfqaBCdX.jpg"
+            alt="Antena GPS RTK montada no teto do trator para precisão centimétrica na lavoura"
+            class="w-full h-80 object-cover rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+        <!-- Text -->
+        <div class="reveal">
+          <h3 class="font-display font-700 text-3xl text-[#f0ede8] mb-4 leading-tight">
+            Piloto Automático com<br/>Precisão Centimétrica
+          </h3>
+          <p class="text-[#9aa3ae] leading-relaxed mb-6">
+            Nosso sistema de direção automática opera em linhas paralelas — retas ou curvas — com precisão de até ±2cm via RTK. A compensação de inclinação garante que a performance seja mantida mesmo nos terrenos mais irregulares da sua propriedade.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="icon-circle mt-0.5 flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="text-[#f0ede8] font-600 text-sm mb-1">Direção automática em linhas paralelas</div>
+                <div class="text-[#9aa3ae] text-sm">Retas ou curvas, com manutenção perfeita do espaçamento entre passadas.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="icon-circle mt-0.5 flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="text-[#f0ede8] font-600 text-sm mb-1">Sinal RTK ou correção paga</div>
+                <div class="text-[#9aa3ae] text-sm">Flexibilidade para escolher o nível de precisão adequado à sua operação.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="icon-circle mt-0.5 flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div class="text-[#f0ede8] font-600 text-sm mb-1">Compatível com diversas marcas e modelos</div>
+                <div class="text-[#9aa3ae] text-sm">Instalação e calibração personalizadas para cada máquina da sua frota.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Row -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- Text -->
+        <div class="reveal order-2 lg:order-1">
+          <h3 class="font-display font-700 text-3xl text-[#f0ede8] mb-4 leading-tight">
+            Conforto e Controle<br/>para o Operador
+          </h3>
+          <p class="text-[#9aa3ae] leading-relaxed mb-6">
+            Longas jornadas no campo exigem tecnologia que reduza a fadiga sem abrir mão da segurança. O sistema assume o controle da direção, permitindo que o operador foque na qualidade da operação — e ao menor toque no volante, o controle retorna instantaneamente.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="glass-card rounded-xl p-5">
+              <div class="text-2xl font-display font-800 text-[#4ade80] mb-1">-40%</div>
+              <div class="text-[#9aa3ae] text-xs uppercase tracking-wider">Fadiga do Operador</div>
+            </div>
+            <div class="glass-card rounded-xl p-5">
+              <div class="text-2xl font-display font-800 text-[#4ade80] mb-1">+25%</div>
+              <div class="text-[#9aa3ae] text-xs uppercase tracking-wider">Produtividade Diária</div>
+            </div>
+            <div class="glass-card rounded-xl p-5">
+              <div class="text-2xl font-display font-800 text-[#4ade80] mb-1">-30%</div>
+              <div class="text-[#9aa3ae] text-xs uppercase tracking-wider">Consumo de Diesel</div>
+            </div>
+            <div class="glass-card rounded-xl p-5">
+              <div class="text-2xl font-display font-800 text-[#4ade80] mb-1">0%</div>
+              <div class="text-[#9aa3ae] text-xs uppercase tracking-wider">Sobreposição</div>
+            </div>
+          </div>
+        </div>
+        <!-- Image -->
+        <div class="img-card reveal order-1 lg:order-2">
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/oJtnoCINyyZoWYwj.jpg"
+            alt="Operador de máquina agrícola relaxado na cabine com sistema de piloto automático ativo"
+            class="w-full h-80 object-cover rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BENEFÍCIOS — Seção com Imagem de Fundo
+  ============================================================ -->
+  <section id="beneficios" class="py-28 px-6 lg:px-8 relative overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029603399/EQoDokKpmYnUQiJj.jpg"
+        alt="Vista aérea de lavoura com fileiras perfeitamente paralelas demonstrando precisão agrícola"
+        class="w-full h-full object-cover opacity-15"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#080a0c] via-transparent to-[#080a0c]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="reveal mb-16 text-center">
+        <div class="section-divider mx-auto"></div>
+        <span class="tag-badge">Retorno sobre Investimento</span>
+        <h2 class="font-display font-800 text-4xl md:text-5xl text-[#f0ede8] mt-4 leading-tight tracking-tight">
+          Sua lavoura mais rentável,<br/><span class="text-gradient">safra após safra.</span>
+        </h2>
+        <p class="text-[#9aa3ae] text-lg mt-4 max-w-2xl mx-auto font-300">
+          A tecnologia de precisão não é um custo — é um investimento que se paga na primeira safra. Veja o impacto real na sua operação.
+        </p>
+      </div>
+
+      <!-- Benefits Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="glass-card rounded-2xl p-8 reveal text-center">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2e7d52]/20 to-[#1a5c3a]/10 border border-[#2e7d52]/20 flex items-center justify-center mx-auto mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-xl text-[#f0ede8] mb-3">Economia Real</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            Redução de até 30% no consumo de diesel e eliminação total de sobreposições. Cada centavo economizado vai direto para o seu resultado.
+          </p>
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <div class="text-3xl font-display font-800 text-[#4ade80]">R$ 120k+</div>
+            <div class="text-[#5a6470] text-xs mt-1 uppercase tracking-wider">Economia média por safra</div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-8 reveal text-center" style="border-color: rgba(46,125,82,0.3);">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2e7d52]/30 to-[#1a5c3a]/20 border border-[#2e7d52]/30 flex items-center justify-center mx-auto mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-xl text-[#f0ede8] mb-3">Produtividade Máxima</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            Operação contínua com máxima eficiência. Sem erros de trajetória, sem retrabalho, sem área desperdiçada. Cada metro quadrado aproveitado.
+          </p>
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <div class="text-3xl font-display font-800 text-[#4ade80]">+25%</div>
+            <div class="text-[#5a6470] text-xs mt-1 uppercase tracking-wider">Aumento de produtividade</div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-8 reveal text-center">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#c47c2a]/20 to-[#a85c3a]/10 border border-[#c47c2a]/20 flex items-center justify-center mx-auto mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e8a84a" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-700 text-xl text-[#f0ede8] mb-3">Solo Preservado</h3>
+          <p class="text-[#9aa3ae] text-sm leading-relaxed">
+            O direcionamento preciso reduz drasticamente a compactação do solo, preservando a saúde da lavoura e garantindo safras mais produtivas no futuro.
+          </p>
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <div class="text-3xl font-display font-800 text-[#e8a84a]">-60%</div>
+            <div class="text-[#5a6470] text-xs mt-1 uppercase tracking-wider">Compactação do solo</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       DEPOIMENTOS
+  ============================================================ -->
+  <section id="depoimentos" class="py-28 px-6 lg:px-8 bg-[#0a0d10]">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Header -->
+      <div class="reveal mb-16">
+        <div class="section-divider"></div>
+        <span class="tag-badge">Prova Social</span>
+        <h2 class="font-display font-800 text-4xl md:text-5xl text-[#f0ede8] mt-4 leading-tight tracking-tight">
+          Quem usa,<br/><span class="text-gradient-green">recomenda.</span>
+        </h2>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="testimonial-card rounded-2xl p-7 reveal">
+          <!-- Stars -->
+          <div class="flex gap-1 mb-5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-[#f0ede8] text-sm leading-relaxed mb-6 italic">
+            "Depois de instalar o piloto automático, reduzi o consumo de diesel em quase 28% na safra de soja. O sistema se pagou em menos de um ano. Hoje não imagino operar sem ele."
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2e7d52] to-[#1a5c3a] flex items-center justify-center text-white font-display font-700 text-sm">
+              MR
+            </div>
+            <div>
+              <div class="text-[#f0ede8] font-600 text-sm">Marcos Rodrigues</div>
+              <div class="text-[#5a6470] text-xs">Produtor Rural — Mato Grosso</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card rounded-2xl p-7 reveal" style="border-color: rgba(46,125,82,0.2);">
+          <div class="flex gap-1 mb-5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-[#f0ede8] text-sm leading-relaxed mb-6 italic">
+            "Gerencio uma frota de 12 máquinas e a uniformidade no trabalho de campo melhorou absurdamente. O suporte técnico na calibração foi impecável — cada máquina configurada do zero."
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2e7d52] to-[#1a5c3a] flex items-center justify-center text-white font-display font-700 text-sm">
+              AS
+            </div>
+            <div>
+              <div class="text-[#f0ede8] font-600 text-sm">André Souza</div>
+              <div class="text-[#5a6470] text-xs">Gerente de Frota — Goiás</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card rounded-2xl p-7 reveal">
+          <div class="flex gap-1 mb-5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-[#f0ede8] text-sm leading-relaxed mb-6 italic">
+            "Trabalho 12 horas por dia no campo. Com o piloto automático, o cansaço no final do dia caiu muito. O sistema é simples de usar e o desarme por toque me dá total confiança na operação."
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2e7d52] to-[#1a5c3a] flex items-center justify-center text-white font-display font-700 text-sm">
+              JP
+            </div>
+            <div>
+              <div class="text-[#f0ede8] font-600 text-sm">João Paulo Lima</div>
+              <div class="text-[#5a6470] text-xs">Operador de Máquinas — Paraná</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA FINAL
+  ============================================================ -->
+  <section class="py-28 px-6 lg:px-8 relative overflow-hidden">
+    <!-- Background Glow -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
+           style="background: radial-gradient(circle, rgba(46,125,82,0.12) 0%, transparent 70%);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
+      <div class="reveal">
+        <span class="tag-badge mb-6 inline-block">Próximo Passo</span>
+        <h2 class="font-display font-800 text-4xl md:text-6xl text-[#f0ede8] leading-tight tracking-tight mb-6">
+          Pronto para transformar<br/>a sua operação?
+        </h2>
+        <p class="text-[#9aa3ae] text-lg md:text-xl font-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Fale com um especialista e descubra como o piloto automático AgriPrecision pode aumentar a rentabilidade da sua lavoura ainda nesta safra.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20solicitar%20uma%20demonstração%20do%20Piloto%20Automático%20AgriPrecision." target="_blank"
+             class="btn-primary btn-pulse text-white font-semibold text-lg px-10 py-5 rounded-xl flex items-center justify-center gap-3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.553 4.122 1.522 5.855L0 24l6.335-1.502A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.359-.213-3.72.882.897-3.63-.234-.373A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+            </svg>
+            Solicitar Demonstração Gratuita
+          </a>
+        </div>
+        <p class="text-[#5a6470] text-sm mt-6">Sem compromisso. Resposta em até 24 horas.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="border-t border-white/5 py-10 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#2e7d52] to-[#1a5c3a] flex items-center justify-center">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="font-display font-700 text-[#f0ede8] tracking-tight">Agri<span class="text-[#4ade80]">Precision</span></span>
+      </a>
+
+      <!-- Copyright -->
+      <p class="text-[#5a6470] text-sm text-center">
+        © 2026 AgriPrecision — Agricultura de Precisão. Todos os direitos reservados.
+      </p>
+
+      <!-- Nav Links -->
+      <div class="flex items-center gap-6">
+        <a href="#diferenciais" class="text-[#5a6470] text-sm hover:text-[#9aa3ae] transition-colors">Diferenciais</a>
+        <a href="#solucoes" class="text-[#5a6470] text-sm hover:text-[#9aa3ae] transition-colors">Soluções</a>
+        <a href="https://wa.me/5511999999999" target="_blank" class="text-[#4ade80] text-sm hover:text-[#3ea06a] transition-colors font-600">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT — GSAP Animations + Mobile Menu
+  ============================================================ -->
+  <script>
+    // ============================================================
+    // GSAP Registration
+    // ============================================================
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ============================================================
+    // HERO ENTRANCE ANIMATIONS
+    // ============================================================
+    const heroTl = gsap.timeline({ delay: 0.2 });
+
+    heroTl
+      .to('#hero-badge', {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        from: { y: 30 }
+      })
+      .fromTo('#hero-title', { opacity: 0, y: 60 }, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out'
+      }, '-=0.3')
+      .fromTo('#hero-sub', { opacity: 0, y: 40 }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, '-=0.5')
+      .fromTo('#hero-cta', { opacity: 0, y: 30 }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power3.out'
+      }, '-=0.4')
+      .fromTo('#hero-stats', { opacity: 0, y: 40 }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, '-=0.3');
+
+    // ============================================================
+    // SCROLL REVEAL — All .reveal elements
+    // ============================================================
+    gsap.utils.toArray('.reveal').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+    });
+
+    // ============================================================
+    // BENTO GRID — Stagger Animation
+    // ============================================================
+    gsap.fromTo('.bento-grid .glass-card',
+      { opacity: 0, y: 40, scale: 0.97 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.bento-grid',
+          start: 'top 80%',
+        }
+      }
+    );
+
+    // ============================================================
+    // HEADER — Scroll Effect
+    // ============================================================
+    ScrollTrigger.create({
+      start: 'top -80',
+      onUpdate: (self) => {
+        const header = document.getElementById('header');
+        if (self.progress > 0) {
+          header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+        } else {
+          header.style.boxShadow = 'none';
+        }
+      }
+    });
+
+    // ============================================================
+    // PARALLAX — Hero Background
+    // ============================================================
+    gsap.to('#hero .absolute.inset-0 img', {
+      yPercent: 20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // ============================================================
+    // STAT NUMBERS — Counter Animation
+    // ============================================================
+    // (Visual only — numbers are already set in HTML)
+
+    // ============================================================
+    // MOBILE MENU
+    // ============================================================
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    const menuCloseBtn = document.getElementById('menu-close');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    menuCloseBtn.addEventListener('click', closeMenu);
+
+    // ============================================================
+    // SMOOTH SCROLL for anchor links
+    // ============================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
